@@ -1,7 +1,5 @@
 package internetShop;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -14,7 +12,6 @@ public class Main {
         int menu = -1;
         int itemNum = -1;
         ShoppingCart cart = new ShoppingCart();
-//        ArrayList cart = new ArrayList<BaseEntity>();
 
         BaseEntity[][] menuArr = new BaseEntity[3][4];
 
@@ -44,7 +41,6 @@ public class Main {
             }
 
             if (itemNum < 0){
-                System.out.println(menu);
                 for (int i = 0; i < menuArr[menu].length; i++) {
                     System.out.println(i+1+") "+ menuArr[menu][i].shortInfo());
                 }

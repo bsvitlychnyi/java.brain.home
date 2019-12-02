@@ -1,19 +1,9 @@
 package internetShop;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ShoppingCart {
     private ArrayList cart= new ArrayList();
-
-    public ArrayList getCart() {
-        return cart;
-    }
-
-    public void setCart(ArrayList cart) {
-        this.cart = cart;
-    }
 
     public void add(BaseEntity item){
         this.cart.add(item);
