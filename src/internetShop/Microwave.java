@@ -26,10 +26,6 @@ public class Microwave extends BaseEntity {
         this.power = power;
     }
 
-    @Override
-    public String toString() {
-        return getBrand() + " за " + getPrice();
-    }
 
     public void info(){
         System.out.println("Микроволновка: \nБренд: "+ getBrand()+"\n"+
@@ -38,7 +34,13 @@ public class Microwave extends BaseEntity {
                 "Объем: "+getVolume()+"\n"+
                 "Моща: "+getPower()+"\n"+
                 "Цена: "+getPrice()+"\n"+
+                "Для добавления в козину нажмите 9"+"\n"+
                 "Для возврата нажмите 0");
+    }
+
+    @Override
+    public String toString(){
+        return ("Микроволновка: \nБренд: "+ getBrand()+", модель: "+getModel()+", цвет: "+getColor()+", объем: "+getVolume()+", моща: "+getPower()+", цена: "+getPrice());
     }
 }
 

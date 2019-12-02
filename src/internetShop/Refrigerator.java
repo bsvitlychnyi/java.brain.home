@@ -16,18 +16,19 @@ public class Refrigerator extends BaseEntity {
         this.volume = volume;
     }
 
-    @Override
-    public String toString() {
-        return getBrand() + " за " + getPrice();
-    }
-
     public void info(){
         System.out.println("Холодильник: \nБренд: "+ getBrand()+"\n"+
                 "Модель: "+getModel()+"\n"+
                 "Цвет: "+getColor()+"\n"+
                 "Объем: "+getVolume()+"\n"+
                 "Цена: "+getPrice()+"\n"+
+                "Для добавления в козину нажмите 9"+"\n"+
                 "Для возврата нажмите 0");
+    }
+
+    @Override
+    public String toString(){
+        return ("Холодильник "+ getBrand()+", модель: "+getModel()+", цвет: "+getColor()+", объем: "+getVolume()+", цена: "+getPrice());
     }
 }
 

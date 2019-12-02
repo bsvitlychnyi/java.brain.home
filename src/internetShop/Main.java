@@ -1,5 +1,7 @@
 package internetShop;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -11,6 +13,8 @@ public class Main {
         int userAnsw;
         int menu = -1;
         int itemNum = -1;
+        ShoppingCart cart = new ShoppingCart();
+//        ArrayList cart = new ArrayList<BaseEntity>();
 
         BaseEntity[][] menuArr = new BaseEntity[3][4];
 
@@ -32,12 +36,17 @@ public class Main {
                 menu = selectMenu();
                 if (menu == -1){
                     break;
+                }else if (menu == 8){
+                    cart(cart);
+                    menu = -1;
+                    continue;
                 }
             }
 
             if (itemNum < 0){
+                System.out.println(menu);
                 for (int i = 0; i < menuArr[menu].length; i++) {
-                    System.out.println(i+1+") "+ menuArr[menu][i]);
+                    System.out.println(i+1+") "+ menuArr[menu][i].shortInfo());
                 }
                 System.out.println("Для выхода в главное меню нажмите 0");
                 itemNum = selectItem();
@@ -51,6 +60,10 @@ public class Main {
             userAnsw = scanner.nextInt();
             if (userAnsw == 0){
                 itemNum = -1;
+            }else if (userAnsw == 9){
+                cart.add(menuArr[menu][itemNum]);
+                itemNum = -1;
+                System.out.println("Добавлено");
             }
         }
     }
@@ -61,7 +74,7 @@ public class Main {
                 "\n1" + ". Холодильники" +
                 "\n2" + ". Стиральные машины" +
                 "\n3" + ". Микроволновые печи");
-        System.out.println("Для выхода нажмите 0");
+        System.out.println("Для просмотра корзины нажмите 9\nДля выхода нажмите 0");
         int userAns = scanner.nextInt();
         if (userAns == 0){
             return -1;
@@ -78,5 +91,21 @@ public class Main {
         }else {
             return userAns - 1;
         }
+    }
+
+    private static void cart(ShoppingCart cart){
+        while (true){
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("В вашей корзине:");
+            cart.seeAll();
+            int dellNum = scanner.nextInt();
+            if (dellNum == 0){
+                break;
+            }else {
+                cart.dell(dellNum-1);
+            }
+
+        }
+
     }
 }

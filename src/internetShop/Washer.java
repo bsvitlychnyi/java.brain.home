@@ -36,11 +36,6 @@ public class Washer extends BaseEntity {
         this.programm = programm;
     }
 
-    @Override
-    public String toString() {
-        return getBrand() + " за " + getPrice();
-    }
-
     public void info(){
         System.out.println("Стиралка: \nБренд: "+ getBrand()+"\n"+
                 "Модель: "+getModel()+"\n"+
@@ -49,7 +44,13 @@ public class Washer extends BaseEntity {
                 "Обороты: "+getSpinSpeed()+"\n"+
                 "Колл прогррамм: "+getProgramm()+"\n"+
                 "Цена: "+getPrice()+"\n"+
+                "Для добавления в козину нажмите 9"+"\n"+
                 "Для возврата нажмите 0");
+    }
+
+    @Override
+    public String toString(){
+        return "Стиралка "+ getBrand()+", модель: "+getModel()+", цвет: "+getColor()+", макс загрузка: "+getMaxLoad()+", обороты: "+getSpinSpeed()+", колл прогррамм: "+getProgramm()+", цена: "+getPrice();
     }
 
 }

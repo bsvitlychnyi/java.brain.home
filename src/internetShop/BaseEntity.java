@@ -51,4 +51,9 @@ public class BaseEntity {
                 "Цвет: "+getColor()+"\n"+
                 "Цена: "+getPrice());
     }
+
+    public String shortInfo() {
+        return getBrand() + " за " + getPrice();
+    }
+
 }
