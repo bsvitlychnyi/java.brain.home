@@ -154,17 +154,17 @@ public class Main {
         Matcher matcher2 = pattern2.matcher(str);
         boolean thirdCheck = matcher2.find();
 
-        // проверяем есть ли вообще выражение (может пользователь ввел только одно число)
-        Pattern pattern3 = Pattern.compile("^[-+(0-9]+[^-*+/]*[-+/*]+[(0-9]+.*[)0-9]+$");
-        Matcher matcher3 = pattern3.matcher(str);
-        boolean fourthCheck = !matcher3.find();
+//        // проверяем есть ли вообще выражение (может пользователь ввел только одно число)
+//        Pattern pattern3 = Pattern.compile("^[-+(0-9]+[^-*+/]*[-+/*]+[(0-9]+.*[)0-9]+$");
+//        Matcher matcher3 = pattern3.matcher(str);
+//        boolean fourthCheck = !matcher3.find();
 
         // проверяем есть ли в выражении скобки в которых нет чисел
         Pattern pattern4 = Pattern.compile("[(]+[^0-9]*[)]+");
         Matcher matcher4 = pattern4.matcher(str);
         boolean fifthCheck = matcher4.find();
 
-        return firstCheck || secCheck || thirdCheck || fourthCheck || fifthCheck;
+        return firstCheck || secCheck || thirdCheck || fifthCheck;
     }
 }
 
