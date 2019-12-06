@@ -1,0 +1,6 @@
+собака dog
+кот cat
+женщина woman
+мужчина man
+для for
+пока while
