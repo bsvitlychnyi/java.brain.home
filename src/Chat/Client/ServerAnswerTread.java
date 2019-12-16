@@ -1,5 +1,7 @@
 package Chat.Client;
 
+import Chat.ChatClient;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,9 +10,11 @@ import java.net.Socket;
 public class ServerAnswerTread implements Runnable {
     private Socket socket;
     private BufferedReader bufferedReader;
+    private ChatClient chatClient;
 
-    public ServerAnswerTread(Socket socket) {
+    public ServerAnswerTread(Socket socket, ChatClient chatClient) {
         try {
+            this.chatClient = chatClient;
             this.socket = socket;
             this.bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         } catch (IOException e) {
@@ -24,10 +28,10 @@ public class ServerAnswerTread implements Runnable {
 
         try {while (true){
             message = this.bufferedReader.readLine();
-            System.out.println(message);
+            chatClient.printMessageFromServer(message);
         }} catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Сервер впав");
+            chatClient.printMessageFromServer("Сервер впав");
         }
     }
 }
