@@ -24,22 +24,35 @@ public class ChatClient extends JFrame {
     private ServerAnswerTread serverAnswerTread;
     private ChatClient chatClient = this;
 
-    ChatClient() {
+    public ChatClient() {
         super("Чат");
-        this.setSize(800, 600);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(panel1);
-        setVisible(true);
         initListeners();
     }
 
     private void initListeners() {
         initSendBtnListeners();
         initStartBtnListeners();
+        initSendByEnterListeners();
     }
 
     private void initSendBtnListeners() {
         sendMessageBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    getClient().SendMessage(messageTextField.getText());
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                messageTextField.selectAll();
+                messageTextField.replaceSelection("");
+            }
+        });
+    }
+    private void initSendByEnterListeners() {
+        messageTextField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -96,9 +109,4 @@ public class ChatClient extends JFrame {
     public void setChatClient(ChatClient chatClient) {
         this.chatClient = chatClient;
     }
-
-    public static void main(String[] args) {
-        ChatClient window = new ChatClient();
-    }
-
 }
