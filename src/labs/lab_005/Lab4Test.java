@@ -1,4 +1,4 @@
-package labs.lab005;
+package labs.lab_005;
 
 import java.util.Arrays;
 import java.util.Random;

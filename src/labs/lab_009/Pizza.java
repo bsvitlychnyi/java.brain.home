@@ -1,4 +1,4 @@
-package labs.lab009;
+package labs.lab_009;
 
 public class Pizza {
     private Circle basis;

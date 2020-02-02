@@ -1,4 +1,4 @@
-package labs.lab010;
+package labs.lab_010;
 
 public class Film {
     private String title;
